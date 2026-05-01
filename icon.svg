@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    
+    <!-- Outer Glow for Center Circle -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Center Circle Gradient (Gemini-esque colors) -->
+    <linearGradient id="circle-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>   <!-- Blue -->
+      <stop offset="50%" stop-color="#8b5cf6"/>  <!-- Purple -->
+      <stop offset="100%" stop-color="#ec4899"/> <!-- Pink -->
+    </linearGradient>
+
+    <!-- Letter G Drop Shadow -->
+    <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Rectangle -->
+  <rect width="512" height="512" fill="url(#bg-grad)" rx="110" />
+  
+  <!-- Subtle border for the app icon shape -->
+  <rect width="508" height="508" x="2" y="2" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" rx="108" />
+
+  <!-- Center Circle with Glow -->
+  <circle cx="256" cy="256" r="185" fill="url(#circle-grad)" filter="url(#glow)" />
+
+  <!-- Inner overlay to give the circle a soft 3d sphere feel -->
+  <circle cx="256" cy="256" r="185" fill="url(#bg-grad)" opacity="0.3" />
+
+  <!-- The Letter "G" -->
+  <text x="50%" y="54%" 
+        text-anchor="middle" 
+        fill="#ffffff" 
+        font-size="240" 
+        font-weight="900"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+        dy=".35em"
+        filter="url(#drop-shadow)">G</text>
+        
+  <!-- Subtle top highlight for the icon edge -->
+  <path d="M 120 12 Q 256 0 392 12 Q 480 30 496 110 Q 256 40 16 110 Q 32 30 120 12 Z" fill="rgba(255,255,255,0.06)" />
+</svg>
